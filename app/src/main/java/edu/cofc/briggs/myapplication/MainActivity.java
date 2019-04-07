@@ -18,6 +18,7 @@ import android.widget.ProgressBar;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.cofc.briggs.myapplication.R;
 import edu.cofc.myapplication.adapter.MessageAdapter;
 import edu.cofc.myapplication.model.FriendlyMessage;
 

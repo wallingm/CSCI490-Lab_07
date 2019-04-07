@@ -12,8 +12,8 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-import edu.cofc.myapplication.R;
-import edu.cofc.myapplication.model.FriendlyMessage;
+import edu.cofc.briggs.myapplication.R;
+import edu.cofc.briggs.myapplication.model.FriendlyMessage;
 
 public class MessageAdapter extends ArrayAdapter<FriendlyMessage> {
 
