@@ -33,3 +33,53 @@ keytool -exportcert -list -v \
 * Firebase Realtime Database must be added to your app. Add ***implementation 'com.google.firebase:firebase-database:16.0.1'*** to your app/build.gradle file in the ***dependencies*** section.
 * More information can be found [here](https://firebase.google.com/docs/android/setup), however I have not had much luck in using this page. Version numbers seem to be off and never compatible with what I am doing. 
 
+## Use Firebase Database ##
+* Add the Database references to you ***MainActivity.java***
+````
+private FirebaseDatabase mFirebaseDatabase;
+private DatabaseReference mMessagesDatabaseReference;
+````
+The FirebaseDatabase object will be a reference to your entire FirebaseDatabase and the DatabaseReference object will be a reference to the ***messages*** collection. 
+
+* Adde the following code in your ***onCreate()*** method:
+````
+mFirebaseDatabase = FirebaseDatabase.getInstance();
+mMessagesDatabaseReference = mFirebaseDatabase.getReference().child("messages");
+````
+Set up the ChildEventListener
+````
+private void attachDatabaseReadListener() {
+        if(mChildEventListner == null) {
+            mChildEventListner = new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                  
+
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+            
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            };
+
+            mMessagesDatabaseReference.addChildEventListener(mChildEventListner);
+        }
+    }
+````
