@@ -12,6 +12,19 @@ This lab demostrates Firebase services from Google. In order to bring in these p
 * Click the Andoid icon to add an Android app to the Firebase project
 * Add your package name for the app. This can be found in the Manifest file.
 * Click 'Register App'.
+* You’ll need to add the debug signing certificate too because you’ll implement Google Sign-In for authentication in FriendlyChat. The SHA-1 is a type of hash representation for the debug keystore, which you can get with the keytool command line tool. Which is a long way of saying, the debug keystore is a bunch of letters and numbers, which you should keep secret, that identifies your computer.
+
+On Windows, open the Command Prompt program. You can do this by going to the Start menu
+````
+keytool -exportcert -list -v \
+-alias androiddebugkey -keystore %USERPROFILE%\.android\debug.keystore
+````
+On Mac/Linux, open the Terminal and paste
+````
+keytool -exportcert -list -v \
+-alias androiddebugkey -keystore ~/.android/debug.keystore
+````
+* Copy and paste the 'SHA1' string and paste into the Firebase Console certificate section. 
 * Download the google-services.json file and add to the app/ directory of your project.
 * Add the Firebase SDK to your project by following the directions from the Firebase Console.
 * Make sure you 'Sync Now'
