@@ -28,3 +28,8 @@ keytool -exportcert -list -v \
 * Download the google-services.json file and add to the app/ directory of your project.
 * Add the Firebase SDK to your project by following the directions from the Firebase Console.
 * Make sure you 'Sync Now'
+
+## Adding Firebase Realtime Database to your app ##
+* Firebase Realtime Database must be added to your app. Add ***implementation 'com.google.firebase:firebase-database:16.0.1'*** to your app/build.gradle file in the ***dependencies*** section.
+* More information can be found [here](https://firebase.google.com/docs/android/setup), however I have not had much luck in using this page. Version numbers seem to be off and never compatible with what I am doing. 
+
