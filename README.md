@@ -83,3 +83,13 @@ private void attachDatabaseReadListener() {
         }
     }
 ````
+````
+private void detachDatabaseReadListener() {
+    if(mChildEventListner != null) {
+        mMessagesDatabaseReference.removeEventListener(mChildEventListner);
+        mChildEventListner = null;
+
+    }
+}
+````
+    
