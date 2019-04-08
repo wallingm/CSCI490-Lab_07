@@ -46,7 +46,7 @@ The FirebaseDatabase object will be a reference to your entire FirebaseDatabase 
 mFirebaseDatabase = FirebaseDatabase.getInstance();
 mMessagesDatabaseReference = mFirebaseDatabase.getReference().child("messages");
 ````
-* Create an OnClickListener to the button
+* Ensure there is an OnClickListener attached to the button
 ````
 // Send button sends a message and clears the EditText
 mSendButton.setOnClickListener(new View.OnClickListener() {
