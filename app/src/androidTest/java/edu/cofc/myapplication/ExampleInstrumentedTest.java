@@ -1,4 +1,4 @@
-package edu.cofc.myapplication;
+package edu.cofc.briggs.myapplication;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("edu.cofc.myapplication", appContext.getPackageName());
+        assertEquals("edu.cofc.briggs.myapplication", appContext.getPackageName());
     }
 }

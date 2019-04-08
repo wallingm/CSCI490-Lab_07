@@ -1,4 +1,4 @@
-package edu.cofc.myapplication;
+package edu.cofc.briggs.myapplication;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.cofc.briggs.myapplication.R;
-import edu.cofc.myapplication.adapter.MessageAdapter;
-import edu.cofc.myapplication.model.FriendlyMessage;
+import edu.cofc.briggs.myapplication.adapter.MessageAdapter;
+import edu.cofc.briggs.myapplication.model.FriendlyMessage;
 
 
 public class MainActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package edu.cofc.myapplication.adapter;
+package edu.cofc.briggs.myapplication.adapter;
 
 import android.app.Activity;
 import android.content.Context;

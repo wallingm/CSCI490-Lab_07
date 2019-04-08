@@ -1,4 +1,4 @@
-package edu.cofc.myapplication;
+package edu.cofc.briggs.myapplication;
 
 import org.junit.Test;
 
