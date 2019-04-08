@@ -62,7 +62,29 @@ mSendButton.setOnClickListener(new View.OnClickListener() {
 ````
 Within the onClick method, let’s create a FriendlyMessage object for the message that the user typed in. The FriendlyMessage object has three instance variables: A String for the user’s name, A String for the text of the message A String for the URL of the photo if it’s a photo message.
 
+````
+FriendlyMessage friendlyMessage = new FriendlyMessage(mMessageEditText.getText().toString(), mUsername, null);
+mMessagesDatabaseReference.push().setValue(friendlyMessage);
+````
+
+
 In this case, we’re only sending text messages for now (we will implement photo-messaging later), so we’ll create a FriendlyMessage object with all the fields except for photoUrl, which will be null.
+
+* At this point, return to the Firebase Console and click on the 'Database' tab and click 'Create database'. Chose 'Start in Test Mode' and click 'Enable'.
+* You'll notice that the default view if for a Cloud Firestore. In the Database dropdown, choose 'Realtime Database'.
+* Run the app and try to send a message while monitoring Logcat.
+* What did you notice? You should have seen that you were denied permission to write to the database.
+* In the Firebase Console under Database (make sure you are looking at Realtime Database) and click the 'Rules' tab. Change the permissions to look like:
+````
+{
+  /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+````
+
 Set up the ChildEventListener
 ````
 private void attachDatabaseReadListener() {
