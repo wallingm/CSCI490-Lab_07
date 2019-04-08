@@ -41,11 +41,28 @@ private DatabaseReference mMessagesDatabaseReference;
 ````
 The FirebaseDatabase object will be a reference to your entire FirebaseDatabase and the DatabaseReference object will be a reference to the ***messages*** collection. 
 
-* Adde the following code in your ***onCreate()*** method:
+* Add the following code in your ***onCreate()*** method:
 ````
 mFirebaseDatabase = FirebaseDatabase.getInstance();
 mMessagesDatabaseReference = mFirebaseDatabase.getReference().child("messages");
 ````
+* Create an OnClickListener to the button
+````
+// Send button sends a message and clears the EditText
+mSendButton.setOnClickListener(new View.OnClickListener() {
+   @Override
+   public void onClick(View view) {
+       // TODO: Send messages on click
+
+
+       // Clear input box
+       mMessageEditText.setText("");
+   }
+});
+````
+Within the onClick method, let’s create a FriendlyMessage object for the message that the user typed in. The FriendlyMessage object has three instance variables: A String for the user’s name, A String for the text of the message A String for the URL of the photo if it’s a photo message.
+
+In this case, we’re only sending text messages for now (we will implement photo-messaging later), so we’ll create a FriendlyMessage object with all the fields except for photoUrl, which will be null.
 Set up the ChildEventListener
 ````
 private void attachDatabaseReadListener() {
