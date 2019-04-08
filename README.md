@@ -33,7 +33,7 @@ keytool -exportcert -list -v \
 * Firebase Realtime Database must be added to your app. Add ***implementation 'com.google.firebase:firebase-database:16.0.1'*** to your app/build.gradle file in the ***dependencies*** section.
 * More information can be found [here](https://firebase.google.com/docs/android/setup), however I have not had much luck in using this page. Version numbers seem to be off and never compatible with what I am doing. 
 
-## Use Firebase Database ##
+## Write messages to Firebase Database ##
 * Add the Database references to you ***MainActivity.java***
 ````
 private FirebaseDatabase mFirebaseDatabase;
@@ -84,37 +84,50 @@ In this case, we’re only sending text messages for now (we will implement phot
   }
 }
 ````
+NOTE: This is just for development. The database is now open and not secure. We will fix this later on...
 
-Set up the ChildEventListener
+## Read messages from Firebase Database ##
+
+* In order to receive data/updates from Firebase, we must set up a Listener. Firebase has created an API through ChildEventListener. You mush implement this interface by @Override five methods.
+* Add a ChildEventListener as a member variable:
+````
+private ChildEventListener mChildEventListner;
+````
+
+
+* Set up the ChildEventListener
 ````
 private void attachDatabaseReadListener() {
         if(mChildEventListner == null) {
             mChildEventListner = new ChildEventListener() {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                  
+                    // Method that gets called whenever a message gets inserted
+                    // It is also triggered for every message that is in the database
+                    // when the listener is first attached
 
                 }
 
                 @Override
                 public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                    // Method that gets called when an existing message is changed
 
                 }
 
                 @Override
                 public void onChildRemoved(DataSnapshot dataSnapshot) {
-            
+                    // Method that gets called when an existing message is deleted
 
                 }
 
                 @Override
                 public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
+                    // Method that gets called when an existing message changes position
                 }
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-
+                    // Method that gets called when some error occurred
                 }
             };
 
