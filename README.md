@@ -135,6 +135,8 @@ private void attachDatabaseReadListener() {
         }
     }
 ````
+* In the onCreate(), call attachDatabaseReadListener().
+
 ````
 private void detachDatabaseReadListener() {
     if(mChildEventListner != null) {
